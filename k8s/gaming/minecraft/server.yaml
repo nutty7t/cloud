@@ -15,6 +15,7 @@ spec:
       containers:
       - name: server
         image: nutty7t/minecraft-server:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 25565
         volumeMounts:
@@ -23,6 +24,7 @@ spec:
       initContainers:
       - name: minecraft-restore
         image: nutty7t/minecraft-restore:latest
+        imagePullPolicy: Always
         volumeMounts:
         - name: minecraft-world-volume
           mountPath: "/minecraft"
