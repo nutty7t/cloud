@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: server
-        image: nutty7t/craft:1.14.1
+        image: nutty7t/minecraft-server:latest
         ports:
         - containerPort: 25565
         volumeMounts:
@@ -22,7 +22,7 @@ spec:
           mountPath: "/minecraft"
       initContainers:
       - name: minecraft-restore
-        image: nutty7t/craft-restore:latest
+        image: nutty7t/minecraft-restore:latest
         volumeMounts:
         - name: minecraft-world-volume
           mountPath: "/minecraft"
@@ -39,6 +39,7 @@ metadata:
 spec:
   selector:
     app: minecraft
+  type: NodePort
   ports:
   - protocol: TCP
     port: 25565
@@ -56,4 +57,3 @@ spec:
     requests:
       storage: 5Gi
   storageClassName: do-block-storage
-
