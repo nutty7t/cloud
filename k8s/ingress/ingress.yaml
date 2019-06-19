@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: nginx-ingress
+  namespace: nginx-ingress
+spec:
+  rules:
+  - host: minecraft.nutty.services
+    http:
+      paths:
+      - path:
+        - backend:
+            serviceName: minecraft-service
+            servicePort: 80
+
