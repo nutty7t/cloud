@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress
+  namespace: gaming
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+  - host: minecraft.nutty.services
+    http:
+      paths:
+      - backend:
+          serviceName: minecraft-restore
+          servicePort: 5000

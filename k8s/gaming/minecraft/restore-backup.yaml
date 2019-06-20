@@ -1,0 +1,26 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: minecraft-restore
+  namespace: gaming
+spec:
+  template:
+    metadata:
+      labels:
+        app: minecraft
+        function: restore
+    spec:
+      restartPolicy: OnFailure
+      containers:
+      - name: server
+        image: nutty7t/minecraft-restore:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
+        volumeMounts:
+        - name: minecraft-world
+          mountPath: "/minecraft"
+      volumes:
+      - name: minecraft-world
+        persistentVolumeClaim:
+          claimName: minecraft-world

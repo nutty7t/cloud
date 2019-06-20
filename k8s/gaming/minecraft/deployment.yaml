@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minecraft
+  namespace: gaming
+spec:
+  selector:
+    matchLabels:
+      app: minecraft
+      function: server
+  template:
+    metadata:
+      labels:
+        app: minecraft
+        function: server
+    spec:
+      containers:
+      - name: server
+        image: nutty7t/minecraft-server:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 25565
+        volumeMounts:
+        - name: minecraft-world
+          mountPath: "/minecraft"
+      volumes:
+      - name: minecraft-world
+        persistentVolumeClaim:
+          claimName: minecraft-world

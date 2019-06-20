@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: minecraft-restore
+  namespace: gaming
+spec:
+  selector:
+    app: minecraft
+    function: restore
+  ports:
+  - name: http
+    protocol: TCP
+    port: 5000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: minecraft-server
+  namespace: gaming
+spec:
+  selector:
+    app: minecraft
+    function: server
+  ports:
+  - protocol: TCP
+    port: 25565
+  externalIPs:
+  # DO Load Balancer
+  - 157.230.73.43
