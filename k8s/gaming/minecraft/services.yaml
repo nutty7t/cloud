@@ -25,5 +25,6 @@ spec:
   - protocol: TCP
     port: 25565
   externalIPs:
-  # DO Load Balancer
-  - 157.230.73.43
+  # IP address of the K8s worker node.
+  # Why does this work?
+  - 157.230.158.198
