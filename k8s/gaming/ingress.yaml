@@ -8,7 +8,7 @@ metadata:
     nginx.org/client-max-body-size: "1000M"
 spec:
   rules:
-  - host: restore.nutty.services
+  - host: minecraft.nutty.services
     http:
       paths:
       - backend:
