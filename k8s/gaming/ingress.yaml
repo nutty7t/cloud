@@ -5,9 +5,10 @@ metadata:
   namespace: gaming
   annotations:
     kubernetes.io/ingress.class: "nginx"
+    nginx.org/client-max-body-size: "1000M"
 spec:
   rules:
-  - host: minecraft.nutty.services
+  - host: restore.nutty.services
     http:
       paths:
       - backend:
