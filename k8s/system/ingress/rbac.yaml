@@ -65,7 +65,7 @@ metadata:
 subjects:
 - kind: ServiceAccount
   name: nginx-ingress
-  namespace: nginx-ingress
+  namespace: kube-system
 roleRef:
   kind: ClusterRole
   name: nginx-ingress

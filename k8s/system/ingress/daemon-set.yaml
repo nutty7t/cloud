@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: DaemonSet
 metadata:
   name: nginx-ingress
-  namespace: nginx-ingress
+  namespace: kube-system
 spec:
   selector:
     matchLabels:
@@ -34,4 +34,4 @@ spec:
             fieldRef:
               fieldPath: metadata.name
         args:
-          - -default-server-tls-secret=$(POD_NAMESPACE)/tls-secret
+          - -default-server-tls-secret=$(POD_NAMESPACE)/nginx-ingress
