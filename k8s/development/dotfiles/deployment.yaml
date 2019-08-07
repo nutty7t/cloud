@@ -50,6 +50,4 @@ spec:
         persistentVolumeClaim:
           claimName: nutty-drive
       securityContext:
-        runAsUser: 1001 # nutty
-        runAsGroup: 1001 # nutty
         fsGroup: 1001 # nutty
