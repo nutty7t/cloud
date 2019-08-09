@@ -10,15 +10,8 @@ metadata:
 spec:
   tls:
   - hosts:
-    - alby.nutty.dev
-    - ciar.nutty.dev
-    - math.nutty.dev
-    - rabbie.nutty.dev
-    - barri.nutty.dev
-    - coill.nutty.dev
-    - fiodh.nutty.dev
-    - rundal.nutty.dev
-    - peaca.nutty.dev
+    - nutty.dev
+    - "*.nutty.dev"
     secretName: letsencrypt-staging
   rules:
   - host: alby.nutty.dev
