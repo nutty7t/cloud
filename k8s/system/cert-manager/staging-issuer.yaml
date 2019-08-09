@@ -13,4 +13,4 @@ spec:
         digitalocean:
           tokenSecretRef:
             name: digitalocean-dns
-            key: abcdef1234567890
+            key: access-token
