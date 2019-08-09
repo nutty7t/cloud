@@ -4,8 +4,21 @@ metadata:
   name: ingress
   namespace: development
   annotations:
-    kubernetes.io/ingress.class: "nginx"
+    kubernetes.io/ingress.class: nginx
+    certmanager.k8s.io/cluster-issuer: letsencrypt-staging
 spec:
+  tls:
+  - hosts:
+    - alby.nutty.dev
+    - ciar.nutty.dev
+    - math.nutty.dev
+    - rabbie.nutty.dev
+    - barri.nutty.dev
+    - coill.nutty.dev
+    - fiodh.nutty.dev
+    - rundal.nutty.dev
+    - peaca.nutty.dev
+    secretName: letsencrypt-staging
   rules:
   - host: alby.nutty.dev
     http:
