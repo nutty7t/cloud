@@ -8,4 +8,9 @@ spec:
     email: 21b02f46@nutty.email
     privateKeySecretRef:
       name: letsencrypt-production
-    http01: {}
+    solvers:
+    - dns01:
+        digitalocean:
+          tokenSecretRef:
+            name: digitalocean-dns
+            key: abcdef1234567890
