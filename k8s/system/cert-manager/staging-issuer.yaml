@@ -8,9 +8,9 @@ spec:
     email: 21b02f46@nutty.email
     privateKeySecretRef:
       name: letsencrypt-staging
-    dns01:
-      providers:
+    solvers:
+    - dns01:
         digitalocean:
           tokenSecretRef:
             name: digitalocean-dns
-            key: access-token
+            key: abcdef1234567890
