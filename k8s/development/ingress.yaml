@@ -6,13 +6,13 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     kubernetes.io/tls-acme: "true"
-    certmanager.k8s.io/cluster-issuer: letsencrypt-staging
+    certmanager.k8s.io/cluster-issuer: letsencrypt-production
 spec:
   tls:
   - hosts:
     - nutty.dev
     - "*.nutty.dev"
-    secretName: letsencrypt-staging
+    secretName: letsencrypt-production
   rules:
   - host: alby.nutty.dev
     http:
