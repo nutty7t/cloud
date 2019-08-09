@@ -33,7 +33,7 @@ spec:
           containerPort: 4000
         - name: barri
           containerPort: 5000
-        - name: coil
+        - name: coill
           containerPort: 6000
         - name: fiodh
           containerPort: 7000
