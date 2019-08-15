@@ -45,9 +45,17 @@ spec:
         - name: nutty-drive
           mountPath: /home/nutty/Code
           subPath: code
+        - name: docker-socket
+          mountPath: /var/run/docker.sock
+        securityContext:
+          privileged: true
       volumes:
       - name: nutty-drive
         persistentVolumeClaim:
           claimName: nutty-drive
+      - name: docker-socket
+        hostPath:
+          path: /var/run/docker.sock
+          type: File
       securityContext:
         fsGroup: 1001 # nutty
