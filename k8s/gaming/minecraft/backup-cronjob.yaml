@@ -1,0 +1,54 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: minecraft-backup
+  namespace: gaming
+spec:
+  schedule: "0 10 * * *"
+  jobTemplate:
+    metadata:
+      labels:
+        app: minecraft
+        function: backup
+    spec:
+      template:
+        spec:
+          containers:
+          - name: backup
+            image: nutty7t/minecraft-backup:latest
+            env:
+            - name: DIGITALOCEAN_SPACE_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-backup-secret
+                  key: space-name
+            - name: DIGITALOCEAN_SPACE_REGION
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-backup-secret
+                  key: space-region
+            - name: DIGITALOCEAN_SPACE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-backup-secret
+                  key: space-url
+            - name: DIGITALOCEAN_SPACE_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-backup-secret
+                  key: space-key-id
+            - name: DIGITALOCEAN_SPACE_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-backup-secret
+                  key: space-secret
+            - name: MINECRAFT_SERVER_FILES
+              value: "/minecraft"
+            volumeMounts:
+            - name: minecraft-world
+              mountPath: "/minecraft"
+          restartPolicy: OnFailure
+          volumes:
+          - name: minecraft-world
+            persistentVolumeClaim:
+              claimName: minecraft-world
