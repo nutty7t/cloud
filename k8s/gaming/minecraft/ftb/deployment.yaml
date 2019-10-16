@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minecraft-ftb
+  namespace: gaming
+spec:
+  selector:
+    matchLabels:
+      app: minecraft-ftb
+      function: server
+  template:
+    metadata:
+      labels:
+        app: minecraft-ftb
+        function: server
+    spec:
+      containers:
+      - name: server
+        image: nutty7t/minecraft-ftb-server:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 25565
+        volumeMounts:
+        - name: minecraft-ftb-world
+          mountPath: "/minecraft/world"
+      volumes:
+      - name: minecraft-ftb-world
+        persistentVolumeClaim:
+          claimName: minecraft-ftb-world

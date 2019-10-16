@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: minecraft-ftb-server
+  namespace: gaming
+spec:
+  selector:
+    app: minecraft-ftb
+    function: server
+  ports:
+  - protocol: TCP
+    port: 25566
+    targetPort: 25565
+  externalIPs:
+  # IP address of the K8s worker node.
+  # Why does this work?
+  - 157.230.158.198
