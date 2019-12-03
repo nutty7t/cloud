@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: server
-        image: nutty7t/minecraft-server:latest
+        image: nutty7t/minecraft-server:1.14.4
         imagePullPolicy: Always
         ports:
         - containerPort: 25565
