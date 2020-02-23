@@ -1,8 +1,9 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
-helm install                        \
-	--name nginx-ingress            \
-	--namespace nutty-system        \
-	--tiller-namespace nutty-system \
-	stable/nginx-ingress
+helm repo add nginx https://helm.nginx.com/stable
+helm repo update
 
+helm install                 \
+	--namespace nutty-system \
+	nginx-ingress            \
+	nginx/nginx-ingress
