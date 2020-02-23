@@ -1,11 +1,12 @@
-apiVersion: certmanager.k8s.io/v1alpha1
+{{ if .Values.issuer.production }}
+apiVersion: cert-manager.io/v1alpha2
 kind: ClusterIssuer
 metadata:
   name: letsencrypt-production
 spec:
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory
-    email: 21b02f46@nutty.email
+    email: {{ .Values.acme.email }}
     privateKeySecretRef:
       name: letsencrypt-production
     solvers:
@@ -13,4 +14,5 @@ spec:
         digitalocean:
           tokenSecretRef:
             name: digitalocean-dns
-            key: abcdef1234567890
+            key: access-token
+{{ end }}

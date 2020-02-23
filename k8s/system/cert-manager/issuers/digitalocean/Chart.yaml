@@ -1,0 +1,9 @@
+apiVersion: v1
+name: letsencrypt-issuer
+version: 0.1.0
+description: >-
+  ACME Issuer with DNS01 Solver using DigitalOcean's DNS provider for obtaining
+  TLS certificates from Let's Encrypt.
+maintainers:
+- name: nutty7t
+  email: blackhole@nutty.email

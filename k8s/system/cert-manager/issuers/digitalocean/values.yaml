@@ -1,0 +1,12 @@
+# Deploy staging / production issuer?
+issuer:
+  staging: true
+  production: false
+
+# Receive TLS certificate expiration notices via email
+acme:
+  email: 21b02f46@nutty.email
+
+# DigitalOcean access token for DNS01 challenge provider
+digitalocean:
+  accessToken: abcdef1234567890
