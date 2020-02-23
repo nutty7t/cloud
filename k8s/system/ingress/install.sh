@@ -3,7 +3,7 @@
 helm repo add nginx https://helm.nginx.com/stable
 helm repo update
 
-helm install                 \
+helm install \
 	--namespace nutty-system \
-	nginx-ingress            \
+	nginx-ingress \
 	nginx/nginx-ingress

@@ -7,7 +7,7 @@
 kubectl label namespace nutty-system certmanager.k8s.io/disable-validation="true"
 
 # install the custom resource definitions
-kubectl apply        \
+kubectl apply \
 	--validate=false \
 	--filename=https://raw.githubusercontent.com/jetstack/cert-manager/v0.13.1/deploy/manifests/00-crds.yaml
 
@@ -16,14 +16,14 @@ helm repo add jetstack https://charts.jetstack.io
 helm repo update
 
 # install cert-manager helm chart
-helm install                 \
+helm install \
 	--namespace nutty-system \
-	--version v0.13.1        \
-	cert-manager             \
+	--version v0.13.1 \
+	cert-manager \
 	jetstack/cert-manager
 
 # install issuer helm chart
-helm install                 \
+helm install \
 	--namespace nutty-system \
-	letsencrypt-issuer       \
+	letsencrypt-issuer \
 	./issuers/digitalocean

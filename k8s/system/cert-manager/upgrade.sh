@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-helm upgrade                 \
+helm upgrade \
 	--namespace nutty-system \
-	letsencrypt-issuer       \
+	letsencrypt-issuer \
 	./issuers/digitalocean

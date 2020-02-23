@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-helm uninstall               \
+helm uninstall \
 	--namespace nutty-system \
 	nginx-ingress

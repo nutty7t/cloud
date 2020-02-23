@@ -1,12 +1,12 @@
 #!/usr/bin/env sh
 
 # uninstall the issuer helm release
-helm uninstall               \
+helm uninstall \
 	--namespace nutty-system \
 	letsencrypt-issuer
 
 # uninstall the cert-manager helm release
-helm uninstall               \
+helm uninstall \
 	--namespace nutty-system \
 	cert-manager
 
