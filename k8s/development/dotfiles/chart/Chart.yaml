@@ -1,0 +1,7 @@
+apiVersion: v1
+name: dotfiles
+version: 0.1.0
+description: nutty7t's Development Environment
+maintainers:
+- name: nutty7t
+  email: blackhole@nutty.email

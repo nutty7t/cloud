@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: dotfiles
+  namespace: {{ .Release.namespace }}
+spec:
+  selector:
+    app: dotfiles
+  ports:
+  {{- range .Values.network.ports }}
+  - name: {{ .name }}
+    port: {{ .port }}
+    protocol: {{ .protocol }}
+  {{- end }}
+  externalIPs:
+  {{- range .Values.network.externalIPs }}
+  - {{ . }}
+  {{- end }}

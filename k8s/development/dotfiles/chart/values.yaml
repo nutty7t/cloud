@@ -1,0 +1,42 @@
+# dotfiles image
+image:
+  name: nutty7t/dotfiles
+  tag: latest
+
+network:
+  # Expose the Service onto a list of external IP addresses
+  externalIPs:
+  - 138.68.37.226
+  # List of exposed ports
+  ports:
+  - name: alby
+    port: 1000
+    protocol: TCP
+  - name: ciar
+    port: 2000
+    protocol: TCP
+  - name: math
+    port: 3000
+    protocol: TCP
+  - name: rabbie
+    port: 4000
+    protocol: TCP
+  - name: barri
+    port: 5000
+    protocol: TCP
+  - name: coill
+    port: 6000
+    protocol: TCP
+  - name: fiodh
+    port: 7000
+    protocol: TCP
+  - name: rundal
+    port: 8000
+    protocol: TCP
+  - name: peaca
+    port: 9000
+    protocol: TCP
+
+persistence:
+  storageClass: do-block-storage
+  size: 100Gi
