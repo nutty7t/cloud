@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: dotfiles
-  namespace: {{ .Release.namespace }}
+  namespace: {{ .Release.Namespace }}
   labels:
     app: dotfiles
 spec:
