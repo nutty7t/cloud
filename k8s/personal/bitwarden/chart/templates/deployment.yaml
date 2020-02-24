@@ -22,9 +22,9 @@ spec:
         - name: http
           containerPort: 80
         volumeMounts:
-        - name: bitwarden
+        - name: bitwarden-drive
           mountPath: /data
       volumes:
-      - name: bitwarden-backup
+      - name: bitwarden-drive
         persistentVolumeClaim:
           claimName: bitwarden-drive
