@@ -25,7 +25,7 @@ spec:
         {{- end }}
         volumeMounts:
         - name: nutty-drive
-          mountPath: /home/nutty/Code
+          mountPath: /root/Code
           subPath: code
         - name: docker-socket
           mountPath: /var/run/docker.sock
