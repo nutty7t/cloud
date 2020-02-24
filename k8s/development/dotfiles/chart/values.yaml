@@ -6,7 +6,7 @@ image:
 network:
   # Expose the Service onto a list of external IP addresses
   externalIPs:
-  - 138.68.37.226
+  - 157.245.236.5
   # List of exposed ports
   ports:
   - name: alby
