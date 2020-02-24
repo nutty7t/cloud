@@ -1,0 +1,9 @@
+apiVersion: v1
+name: bitwarden
+version: 0.1.0
+description: >-
+  Helm Chart for deploying dani-garcia/bitwarden_rs, an unofficial Bitwarden
+  server API implementation written in Rust.
+maintainers:
+- name: nutty7t
+  email: blackhole@nutty.email

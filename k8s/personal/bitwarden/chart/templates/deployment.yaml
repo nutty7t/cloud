@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bitwarden
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: bitwarden
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bitwarden
+  template:
+    metadata:
+      labels:
+        app: bitwarden
+    spec:
+      containers:
+      - name: bitwarden
+        image: {{ .Values.image.name }}:{{ .Values.image.tag }}
+        ports:
+        - name: http
+          containerPort: 80
+        volumeMounts:
+        - name: bitwarden
+          mountPath: /data
+      volumes:
+      - name: bitwarden-backup
+        persistentVolumeClaim:
+          claimName: bitwarden-drive

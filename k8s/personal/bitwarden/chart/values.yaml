@@ -1,0 +1,22 @@
+image:
+  name: bitwardenrs/server
+  tag: latest
+
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls-acme: "true"
+    cert-manager.io/cluster-issuer: letsencrypt-production
+  path: /
+  hosts:
+  - vault.nutty.services
+  tls:
+  - hosts:
+    - vault.nutty.services
+    secretName: letsencrypt-production
+
+persistence:
+  enabled: true
+  storageClass: do-block-storage
+  size: 5Gi
