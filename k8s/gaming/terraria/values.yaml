@@ -1,0 +1,17 @@
+terraria:
+  world: saturday-group
+
+network:
+  externalIPs:
+  - 157.245.236.5
+  ports:
+  - name: server
+    port: 7777
+    protocol: TCP
+  - name: http
+    port: 7878
+    protocol: TCP
+
+persistence:
+  storageClass: do-block-storage
+  size: 5Gi

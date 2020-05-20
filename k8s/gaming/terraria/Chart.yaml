@@ -1,0 +1,7 @@
+apiVersion: v1
+name: terraria
+version: 0.1.0
+description: Saturday Group's Terraria Server
+maintainers:
+- name: nutty7t
+  email: blackhole@nutty.email

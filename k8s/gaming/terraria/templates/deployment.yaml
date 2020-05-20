@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: terraria
+  namespace: {{ .Release.Namespace }}
+spec:
+  selector:
+    matchLabels:
+      app: terraria
+      function: server
+  template:
+    metadata:
+      labels:
+        app: terraria
+        function: server
+    spec:
+      containers:
+      - name: server
+        image: ryshe/terraria
+        imagePullPolicy: Always
+        args:
+        - "-world"
+        - "/world/{{ .Values.terraria.world }}.wld"
+        ports:
+        - containerPort: 7777
+        volumeMounts:
+        - name: terraria-world
+          mountPath: "/world"
+      volumes:
+      - name: terraria-world
+        persistentVolumeClaim:
+          claimName: terraria-world
