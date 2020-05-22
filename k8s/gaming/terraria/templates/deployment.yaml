@@ -20,12 +20,12 @@ spec:
         imagePullPolicy: Always
         args:
         - "-world"
-        - "/world/{{ .Values.terraria.world }}.wld"
+        - "/root/.local/share/Terraria/Worlds/{{ .Values.terraria.world }}.wld"
         ports:
         - containerPort: 7777
         volumeMounts:
         - name: terraria-world
-          mountPath: "/world"
+          mountPath: "/root/.local/share/Terraria/Worlds"
       volumes:
       - name: terraria-world
         persistentVolumeClaim:
