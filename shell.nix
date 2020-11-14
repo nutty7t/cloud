@@ -3,6 +3,7 @@
 pkgs.mkShell {
   buildInputs = [
     pkgs.kubernetes-helm
+    pkgs.terraform
     pkgs.yq-go
   ];
 }
