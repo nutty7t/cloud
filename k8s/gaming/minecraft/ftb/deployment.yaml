@@ -16,13 +16,13 @@ spec:
     spec:
       containers:
       - name: server
-        image: nutty7t/minecraft-ftb-server:latest
+        image: nutty7t/minecraft-ftb-server:gtnh
         imagePullPolicy: Always
         ports:
         - containerPort: 25565
         volumeMounts:
         - name: minecraft-ftb-world
-          mountPath: "/minecraft/world"
+          mountPath: "/minecraft/nuttycraft"
       volumes:
       - name: minecraft-ftb-world
         persistentVolumeClaim:
